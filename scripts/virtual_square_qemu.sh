@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ================================================== #
+# All credits for this script to github.com/domelive #
+# ================================================== #
+
+
 # program parameters
 NPROC=$1
 RAM=$2
