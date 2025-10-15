@@ -48,6 +48,8 @@ font pango:IBMPlexMono 8
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+exec_always --no-startup-id nm-applet
+
 ### Input configuration
 
 input "1:1:AT_Translated_Set_2_keyboard" {
@@ -70,7 +72,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     # Start your launcher
     bindsym $mod+d exec $menu
 
-    bindsym $mod+Control+l exec swaylock
+    bindsym $mod+Control+l exec swaylock -i "~/Downloads/zig.png"
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -212,22 +214,16 @@ bindsym $mod+r mode "resize"
 
 # windows borders
   default_border pixel 2
+# GAPS
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    status_command i3blocks 
     position bottom
-    
+    mode dock
     font pango:IosevkaTerm 8
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command i3blocks
-
-   # colors {
-   #     statusline #ffffff
-   #     background #323232
-   #     inactive_workspace #32323200 #32323200 #5c5c5c
-   # }
 }
+
 
 include /etc/sway/config.d/*
